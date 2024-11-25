@@ -19,11 +19,11 @@ userInput = tagS
 -- | Output the number of words of the line that was just entered.
 wordCount :: ClSF IO StdinClock () Int
 -- Do you remember how to convert a pure function into a ClSF?
-wordCount = userInput >-> _ (Text.words >>> length)
+wordCount = arr (length . Text.words) <-< userInput
 
 -- | Print the number of words of the line that was just entered.
 printWordCount :: ClSF IO StdinClock () ()
-printWordCount = wordCount >-> arrMCl print
+printWordCount = arrMCl print <-< wordCount
 
 main :: IO ()
 main = flow $ printWordCount @@ StdinClock
