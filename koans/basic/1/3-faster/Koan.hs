@@ -16,9 +16,7 @@ import FRP.Rhine
 
 -- Can you complete this?
 
-{- | The clock _type_ specifies the rate of the clock.
-type TenPerSecond = Millisecond _
--}
+type TenPerSecond = Millisecond 100
 
 -- | A clock that ticks 10 times second.
 tenPerSecond :: TenPerSecond
