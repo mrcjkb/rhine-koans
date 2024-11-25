@@ -14,7 +14,7 @@ import Data.Text.IO as Text (putStrLn)
 import FRP.Rhine
 
 -- | A clock that ticks every second.
-everySecond :: Millisecond 2345
+everySecond :: Millisecond 1000
 everySecond = waitClock
 
 -- | A component of the whole signal network.
