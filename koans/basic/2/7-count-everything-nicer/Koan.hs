@@ -3,6 +3,7 @@
 -- Disabling formatter and linter because it would fail on the syntax error otherwise.
 #ifndef __HLINT__
 {- FOURMOLU_DISABLE -}
+{-# LANGUAGE Arrows #-}
 
 -- Start reading here
 -- vvvvvvvvvvvvvvvvvv
@@ -55,13 +56,12 @@ printAllCounts = proc () -> do
   -- If a signal function has trivial output (), the <- is not needed.
   arrMCl print -< lineCount
   arrMCl print -< totalWordCount
-  arrMCl print -< _ -- Which one is missing here?
+  arrMCl print -< totalCharCount -- Which one is missing here?
 
 -- As you've seen, arrow notation introduces two new syntactic constructions,
 -- the proc keyword an the -< operator.
 -- You need to turn on a GHC language extension so that they can be parsed!
 -- Can you uncomment the following line, and move to the top of the file?
--- {-# LANGUAGE Arrows #-}
 
 main :: IO ()
 main = flow $ printAllCounts @@ StdinClock
