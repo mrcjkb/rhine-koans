@@ -26,7 +26,7 @@ printAllCounts = proc () -> do
   totalCharCount <- sumN -< charCount
 
   -- Only trigger the then-branch on every 1000th line!
-  if _
+  if lineCount `mod` 1000 == 0
     then do
       arrMCl print -< lineCount
       arrMCl print -< totalWordCount
