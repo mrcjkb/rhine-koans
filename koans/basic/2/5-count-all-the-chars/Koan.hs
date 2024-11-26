@@ -60,11 +60,11 @@ totalWordCount = wordCount >-> sumClSF
 -- | The number of characters of input so far.
 totalCharCount :: ClSF IO StdinClock () Int
 -- Reuse your sum utility!
-totalCharCount = charCount >-> _
+totalCharCount = charCount >-> sumClSF
 
 -- | The number of total words and characters so far.
 totalWordAndCharCount :: ClSF IO StdinClock () (Int, Int)
-totalWordAndCharCount = _ &&& _
+totalWordAndCharCount = totalWordCount &&& totalCharCount
 
 -- | Print the number of total words and characters so far.
 printAllCounts :: ClSF IO StdinClock () ()
